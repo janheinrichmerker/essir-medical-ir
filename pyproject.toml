@@ -1,0 +1,33 @@
+[project]
+name = "essir-medical-ir"
+description = "ESSIR 2023 hands-on for Medical IR."
+readme = "README.md"
+requires-python = ">=3.10"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Operating System :: OS Independent",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering",
+]
+dependencies = [
+]
+dynamic = ["version"]
+
+[build-system]
+requires = ["setuptools>=50", "setuptools_scm[toml]>=6.2", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+include = ["stare"]
+namespaces = false
+
+[tool.setuptools.package-data]
+mypkg = ["*.txt", "*.md", "*.rst"]
+
+[tool.setuptools_scm]
