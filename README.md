@@ -2,9 +2,13 @@
 [![Commit activity](https://img.shields.io/github/commit-activity/m/heinrichreimer/essir-medical-ir?style=flat-square)](https://github.com/heinrichreimer/essir-medical-ir/commits)
 [![License](https://img.shields.io/github/license/heinrichreimer/essir-medical-ir?style=flat-square)](LICENSE)
 
-# 🆚 essir-medical-ir
+# ⚕️ essir-medical-ir
 
 ESSIR 2023 hands-on for Medical IR.
+
+## Resources
+
+Thanks to the tutors for providing [many useful resources](https://github.com/ProjectDossier/essir-medical-session)!
 
 ## Installation
 
@@ -18,6 +22,16 @@ ESSIR 2023 hands-on for Medical IR.
     ```shell
     pip install -e .
     ```
+
+## Testing
+
+After [installing](#installation) all test dependencies (`pip install -e .[tests]`), you can run our approval tests:
+
+```shell script
+flake8 essir_medical_ir
+pylint essir_medical_ir
+pytest essir_medical_ir
+```
 
 ## License
 

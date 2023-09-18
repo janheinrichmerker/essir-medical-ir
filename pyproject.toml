@@ -13,6 +13,9 @@ classifiers = [
     "Topic :: Scientific/Engineering",
 ]
 dependencies = [
+    "jupyter",
+    "python-terrier",
+    "pandas",
 ]
 dynamic = ["version"]
 
@@ -24,7 +27,7 @@ build-backend = "setuptools.build_meta"
 include-package-data = true
 
 [tool.setuptools.packages.find]
-include = ["stare"]
+include = ["essir_medical_ir"]
 namespaces = false
 
 [tool.setuptools.package-data]
