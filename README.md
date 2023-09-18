@@ -30,6 +30,7 @@ After [installing](#installation) all test dependencies (`pip install -e .[tests
 ```shell script
 flake8 essir_medical_ir
 pylint essir_medical_ir
+bandit -c pyproject.toml -r essir_medical_ir
 pytest essir_medical_ir
 ```
 
