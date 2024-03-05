@@ -1,103 +1,102 @@
-name: "CI"
+name: CI
 
 on:
   push:
 
 jobs:
   python-build:
-    name: "🏗️ Build Python wheels"
+    name: 🏗️ Build Python wheels
     runs-on: ubuntu-latest
     steps:
-    - name: "📥 Check-out"
+    - name: 📥 Check-out
       uses: actions/checkout@v4
-    - name: "🧰 Install Python"
+    - name: 🧰 Install Python
       uses: actions/setup-python@v5
       with:
-        python-version: "3.10"
+        python-version: '3.10'
         cache: pip
         cache-dependency-path: pyproject.toml
-    - name: "🧰 Install dependencies"
+    - name: 🧰 Install dependencies
       run: pip install build twine
-    - name: "🏗️ Build Python wheels"
+    - name: 🏗️ Build Python wheels
       run: python -m build
-    - name: "🧪 Check package bundles"
+    - name: 🧪 Check package bundles
       run: twine check dist/*
-    - name: "📤 Upload Python wheels"
+    - name: 📤 Upload Python wheels
       uses: actions/upload-artifact@v4
       with:
         name: wheels
         path: dist
   python-code-format:
-    name: "🔍 Check Python code format"
+    name: 🔍 Check Python code format
     runs-on: ubuntu-latest
     steps:
-    - name: "📥 Check-out"
+    - name: 📥 Check-out
       uses: actions/checkout@v4
-    - name: "🧰 Install Python"
+    - name: 🧰 Install Python
       uses: actions/setup-python@v5
       with:
-        python-version: "3.10"
+        python-version: '3.10'
         cache: pip
         cache-dependency-path: pyproject.toml
-    - name: "🧰 Install dependencies"
+    - name: 🧰 Install dependencies
       run: pip install .[tests]
-    - name: "🔍 Check Python code format"
+    - name: 🔍 Check Python code format
       run: flake8 essir_medical_ir
   python-lint:
-    name: "🔍 Lint Python code"
+    name: 🔍 Lint Python code
     runs-on: ubuntu-latest
     steps:
-    - name: "📥 Check-out"
+    - name: 📥 Check-out
       uses: actions/checkout@v4
-    - name: "🧰 Install Python"
+    - name: 🧰 Install Python
       uses: actions/setup-python@v5
       with:
-        python-version: "3.10"
+        python-version: '3.10'
         cache: pip
         cache-dependency-path: pyproject.toml
-    - name: "🧰 Install dependencies"
+    - name: 🧰 Install dependencies
       run: pip install .[tests]
-    - name: "🔍 Lint Python code"
+    - name: 🔍 Lint Python code
       run: pylint essir_medical_ir
   python-security:
-    name: "🔍 Check Python code security"
+    name: 🔍 Check Python code security
     runs-on: ubuntu-latest
     steps:
-    - name: "📥 Check-out"
+    - name: 📥 Check-out
       uses: actions/checkout@v4
-    - name: "🧰 Install Python"
+    - name: 🧰 Install Python
       uses: actions/setup-python@v5
       with:
-        python-version: "3.10"
+        python-version: '3.10'
         cache: pip
         cache-dependency-path: pyproject.toml
-    - name: "🧰 Install dependencies"
+    - name: 🧰 Install dependencies
       run: pip install .[tests]
-    - name: "🔍 Check Python code security"
+    - name: 🔍 Check Python code security
       run: bandit -c pyproject.toml -r essir_medical_ir
   python-test:
-    name: "🧪 Test Python code"
+    name: 🧪 Test Python code
     runs-on: ubuntu-latest
     steps:
-    - name: "📥 Check-out"
+    - name: 📥 Check-out
       uses: actions/checkout@v4
-    - name: "🧰 Install Python"
+    - name: 🧰 Install Python
       uses: actions/setup-python@v5
       with:
-        python-version: "3.10"
+        python-version: '3.10'
         cache: pip
         cache-dependency-path: pyproject.toml
-    - name: "🧰 Install dependencies"
+    - name: 🧰 Install dependencies
       run: pip install .[tests]
-    - name: "🧪 Test Python code"
+    - name: 🧪 Test Python code
       run: pytest --cov --cov-report=xml essir_medical_ir
-    - name: "📤 Upload coverage to Codecov"
+    - name: 📤 Upload coverage to Codecov
       uses: codecov/codecov-action@v4
       with:
-        fail_ci_if_error: true
         token: ${{ secrets.CODECOV_TOKEN }}
   github-release:
-    name: "🚀 Create GitHub release"
+    name: 🚀 Create GitHub release
     if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags')
     needs:
     - python-build
@@ -107,14 +106,14 @@ jobs:
     - python-test
     runs-on: ubuntu-latest
     steps:
-    - name: "📥 Check-out"
+    - name: 📥 Check-out
       uses: actions/checkout@v4
-    - name: "📥 Download Python wheels"
+    - name: 📥 Download Python wheels
       uses: actions/download-artifact@v4
       with:
         name: wheels
         path: dist
-    - name: "🚀 Create GitHub release"
+    - name: 🚀 Create GitHub release
       uses: softprops/action-gh-release@v1
       with:
         name: Release ${{ github.ref_name }}
