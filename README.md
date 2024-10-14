@@ -1,6 +1,6 @@
-[![Issues](https://img.shields.io/github/issues/heinrichreimer/essir-medical-ir?style=flat-square)](https://github.com/heinrichreimer/essir-medical-ir/issues)
-[![Commit activity](https://img.shields.io/github/commit-activity/m/heinrichreimer/essir-medical-ir?style=flat-square)](https://github.com/heinrichreimer/essir-medical-ir/commits)
-[![License](https://img.shields.io/github/license/heinrichreimer/essir-medical-ir?style=flat-square)](LICENSE)
+[![Issues](https://img.shields.io/github/issues/janheinrichmerker/essir-medical-ir?style=flat-square)](https://github.com/janheinrichmerker/essir-medical-ir/issues)
+[![Commit activity](https://img.shields.io/github/commit-activity/m/janheinrichmerker/essir-medical-ir?style=flat-square)](https://github.com/janheinrichmerker/essir-medical-ir/commits)
+[![License](https://img.shields.io/github/license/janheinrichmerker/essir-medical-ir?style=flat-square)](LICENSE)
 
 # ⚕️ essir-medical-ir
 
